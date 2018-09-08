@@ -1,25 +1,248 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* 
+- BODY
+*/
 body {
     margin: 0;
     padding: 0;
 }
 
+/* 
+- HEADER
+*/
 header {
     display: flex;
     justify-content: center;
     height: 120px;
 }
 
-header .container {
+.container {
     display: flex;
     justify-content: space-between;
     width: 990px;
-    background-color: #ff0000;
 }
 
-header.container .logo {
-
+header .container .logo {
+    display: flex;
+    align-items: center;
 }
 
-header.container .menu {
+header .container .menu {
+    display: flex;
+    align-items: center;
+}
 
+header .container .menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header .container .menu ul li {
+    margin: 5px;
+}
+
+header .container .menu ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #727272;
+}
+
+header .container .menu ul li a.active, header .container .menu ul li a:hover {
+    background-color: #39aae1;
+    color: #fff;
+}
+
+/* 
+- BANNER
+*/
+#banner {
+    display: flex;
+    justify-content: center;
+    background-image: url('../images/img1.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 670px;
+}
+
+#banner .column {
+    flex-direction: column;
+}
+
+#banner .banner-headline {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#banner .banner-headline h1 {
+    color: #fff;
+    font-size: 70px;
+    text-shadow: 1px 1px 0 #555;
+    margin: 0;
+    padding: 0;
+    max-width: 350px;
+}
+
+#banner .banner-headline h2 {
+    color: #fff;
+    font-size: 21px;
+    text-shadow: 1px 1px 0 #555;
+    margin: 0;
+    padding: 0;
+    max-width: 350px;
+    margin-top: 20px;
+}
+
+#banner .banner-options {
+    height: 210px;
+    display: flex;
+}
+
+#banner .banner-options .banner1,
+#banner .banner-options .banner2,
+#banner .banner-options .banner3 {
+    flex: 1;
+    color: #fff;
+    padding: 20px;
+}
+
+#banner .banner-options .banner1 {
+    background-color: #39aae1;
+}
+
+#banner .banner-options .banner2 {
+    background-color: #0079c7;
+}
+
+#banner .banner-options .banner3 {
+    background-color: #2b4c99;
+}
+
+#banner .banner-options .banner-title {
+    font-size: 21px;
+}
+
+#banner .banner-options .banner-content {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#banner .banner-options .banner-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 125px;
+}
+
+#banner .banner-options .banner-content ul li {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+}
+
+#banner .banner-options .banner-action a {
+    display: inline-block;
+    border: 1px solid #fff;
+    padding: 5px;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+#content section {
+    flex: 2;
+}
+
+#content aside {
+    flex: 1;
+}
+
+#content .widget-title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#content .widget-title h2 {
+    color: #000;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+#content .widget-title .border-title {
+    width: 50px;
+    height: 2px;
+    background-color: #36a9e1;
+}
+
+#content .widget-content.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#content article {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+#content article a {
+    text-decoration: none;
+}
+
+#content article .news-data {
+    display: flex;
+}
+
+#content article .news-data .news-posted-at {
+    color: #fff;
+    background-color: #2b4c99;
+    font-size: 12px;
+    padding: 10px; 
+}
+
+#content article .news-data .news-comments {
+    color: #fff;
+    background-color: #39aae1;
+    font-size: 12px;
+    padding: 10px 15px;
+    margin-left: 3px;
+}
+
+#content article .news-thumbnail {
+    margin-top: 30px;
+}
+
+#content article .news-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+#content article h2 {
+    color: #000;
+    font-size: 23px;
+}
+
+#content article p {
+    color: #5c5c5c;
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 30px;
 }
