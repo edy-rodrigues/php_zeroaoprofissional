@@ -6,7 +6,7 @@ if(!empty($_POST['email'])) {
 	$email = addslashes($_POST['email']);
 	$senha = md5($_POST['senha']);
 
-	$sql = "SELECT id FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+	$sql = "SELECT id FROM tb_usuario WHERE email = '$email' AND senha = '$senha'";
 	$sql = $pdo->query($sql);
 
 	if($sql->rowCount() > 0) {

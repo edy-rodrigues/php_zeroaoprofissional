@@ -5,12 +5,18 @@ require 'config.php';
 if(!empty($_GET['codigo'])) {
 	$codigo = addslashes($_GET['codigo']);
 
-	$sql = "SELECT * FROM usuarios WHERE codigo = '$codigo'";
+	$sql = "SELECT * FROM tb_usuario WHERE codigo = '$codigo'";
 	$sql = $pdo->query($sql);
 
 	if($sql->rowCount() == 0) {
 		header("Location: login.php");
 		exit;
+	} else {
+		$dado = $sql->fetch();
+		if($dado['numIndicacao'] > 5) {
+			header("Location: login.php");
+			exit;
+		}
 	}
 } else {
 	header("Location: login.php");
@@ -18,16 +24,20 @@ if(!empty($_GET['codigo'])) {
 }
 
 if(!empty($_POST['email'])) {
+	$indicacao = $dado['numIndicacao'] + 1;
+	$sql = "UPDATE tb_usuario SET numIndicacao = '$indicacao' WHERE id = '".$dado['id']."'";
+	$pdo->query($sql);
+
 	$email = addslashes($_POST['email']);
 	$senha = md5($_POST['senha']);
 
-	$sql = "SELECT * FROM usuarios WHERE email = '$email'";
+	$sql = "SELECT * FROM tb_usuario WHERE email = '$email'";
 	$sql = $pdo->query($sql);
 
 	if($sql->rowCount() <= 0) {
 
 		$codigo = md5(rand(0,99999).rand(0,99999));
-		$sql = "INSERT INTO usuarios (email, senha, codigo) VALUES ('$email', '$senha', '$codigo')";
+		$sql = "INSERT INTO tb_usuario (email, senha, codigo, numIndicacao) VALUES ('$email', '$senha', '$codigo', 0)";
 		$sql = $pdo->query($sql);
 
 		unset($_SESSION['logado']);
