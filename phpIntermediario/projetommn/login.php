@@ -17,8 +17,6 @@ if(!empty($_POST['txt-email'])) {
     $email = addslashes($_POST['txt-email']);
     $senha = md5(addslashes($_POST['txt-senha']));
 
-    echo $email."<br>".$senha;
-
     $sql = $db->prepare("SELECT * FROM tb_usuario WHERE email = :email AND senha = :senha");
     $sql->bindValue(":email", $email);
     $sql->bindValue(":senha", $senha);
