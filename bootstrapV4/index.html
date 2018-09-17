@@ -1,22 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
+    <!-- META -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bootstrap V5</title>
+    <!-- META -->
+    <title>Bootstrap V4</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- CSS -->
 </head>
+
 <body>
 
+    <!-- ESTRUTURA DO SITE -->
+    <div class="container">
 
-<!-- SCRIPT -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.bundle.js"></script>
-<script src="assets/js/main.js"></script>
-<!-- SCRIPT -->
+        <!-- Estrutura de comentário -->
+        <ul class="list-unstyled">
+            <li class="media pt-2">
+                <img src="assets/img/avatar_hat.jpg" class="mr-3 avatar align-self-center">
+                <div class="media-body">
+                    <h4>Titulo</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iusto vel rerum doloribus,
+                        pariatur quis facilis ipsum accusantium cupiditate magni quo obcaecati ex voluptatem tempora
+                        ullam laudantium. Enim, id aliquid.</p>
+                </div>
+            </li>
+            <li class="media pt-2">
+                <img src="assets/img/avatar_hat.jpg" class="mr-3 avatar align-self-center">
+                <div class="media-body">
+                    <h4>Titulo</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iusto vel rerum doloribus,
+                        pariatur quis facilis ipsum accusantium cupiditate magni quo obcaecati ex voluptatem tempora
+                        ullam laudantium. Enim, id aliquid.</p>
+                </div>
+            </li>
+            <li class="media pt-2">
+                <img src="assets/img/avatar_hat.jpg" class="mr-3 avatar align-self-center">
+                <div class="media-body">
+                    <h4>Titulo</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iusto vel rerum doloribus,
+                        pariatur quis facilis ipsum accusantium cupiditate magni quo obcaecati ex voluptatem tempora
+                        ullam laudantium. Enim, id aliquid.</p>
+                </div>
+            </li>
+        </ul>
+        <!-- Estrutura de comentário -->
+
+
+        <!-- LISTA INLINE -->
+        <ul class="list-inline">
+            <li class="list-inline-item">Item 1</li>
+            <li class="list-inline-item">Item 2</li>
+            <li class="list-inline-item">Item 3</li>
+        </ul>
+        <!-- LISTA INLINE -->
+
+
+        <!-- IMAGEM -->
+        <img src="assets/img/background.jpg" alt="Uma imagem" class="img-fluid">
+        <img src="assets/img/avatar_hat.jpg" alt="Avatar" class="rounded img-fluid mt-2">
+        <figure class="figure">
+            <img src="assets/img/background.jpg" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">
+                Paisagem
+            </figcaption>
+        </figure>
+        <!-- IMAGEM -->
+
+
+        <!-- TABELA -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Edinei</td>
+                        <td>Rodrigues</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Giovanna</td>
+                        <td>Cardozo</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Beatriz</td>
+                        <td>Gonçalves</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- TABELA -->
+
+
+        <!-- ALERTA E AVISOS -->
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <h4>Informação</h4>
+            <span>Alguma informação</span>
+            <a href="#" class="close" data-dismiss="alert" aria-label="Fechar"><span aria-hidden="true">&times;</span></a>
+        </div>
+        <!-- ALERTA E AVISOS -->
+
+
+        <!-- BOTÃO E GRUPO DE BOTÕES -->
+        <a href="#" class="btn btn-outline-dark btn-lg">Botão</a>
+        <button class="btn btn-dark btn-md">Botão</button>
+        <input type="button" value="Botão" class="btn btn-link btn-sm">
+
+        <div class="btn-group-vertical">
+            <a href="#" class="btn btn-outline-dark">Botão</a>
+            <button class="btn btn-outline-dark">Botão</button>
+            <input type="button" value="Botão" class="btn btn-outline-dark">
+        </div>
+        <!-- BOTÃO E GRUPO DE BOTÕES -->
+
+
+        <!-- CAROUSEL -->
+        <div id="slideShow-1" class="slide carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target="#slideShow-1" data-slide-to="1" class="active"></li>
+                <li data-target="#slideShow-1" data-slide-to="2"></li>
+                <li data-target="#slideShow-1" data-slide-to="3"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/img/foto1.png" alt="Imagem-1" class="w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/foto2.jpg" alt="Imagem-2" class="w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/foto3.jpg" alt="Imagem-3" class="w-100">
+                </div>
+            </div>
+
+            <a href="#slideShow-1" data-slide="prev" class="carousel-control-prev"><span class="carousel-control-prev-icon"></span></a>
+            <a href="#slideShow-1" data-slide="next" class="carousel-control-next"><span class="carousel-control-next-icon"></span></a>
+
+        </div>
+        <!-- CAROUSEL -->
+
+
+        <!-- COLLAPSE -->
+        <a href="#" class="btn btn-dark" data-toggle="collapse" data-target="#area">Mostrar/Esconde</a>
+        <div id="area" class="collapse bg-info p-2 my-2 text-light">
+            Texto escondido
+        </div>
+        <a href="#" class="btn btn-dark" data-toggle="collapse" data-target="#area1">Mostrar/Esconde</a>
+        <div id="area1" class="collapse bg-info p-2 my-2 text-light">
+            Texto escondido
+        </div>
+        <a href="#" class="btn btn-dark" data-toggle="collapse" data-target="#area2">Mostrar/Esconde</a>
+        <div id="area2" class="collapse bg-info p-2 my-2 text-light">
+            Texto escondido
+        </div>
+        <!-- COLLAPSE -->
+
+
+        <!-- ACCORDION -->
+        <div id="accordion">
+            <!-- CARD -->
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#c1" aria-controls="c1">Titulo do CARD 1</button>
+                </div>
+                <div id="c1" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, nisi optio iste perspiciatis dignissimos, est quas odit blanditiis aliquid adipisci accusamus unde? Qui dolorem eos minima. A dignissimos optio nobis!
+                    </div>
+                </div>
+            </div>
+            <!-- CARD -->
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#c2" aria-controls="c2">Titulo do CARD 2</button>
+                </div>
+                <div id="c2" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit adipisci molestias asperiores ratione id, aliquid quas! Corporis, dignissimos laudantium, ea dolore soluta omnis aperiam minima quisquam perferendis ut architecto sit.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#c3" aria-controls="c3">Titulo do CARD 3</button>
+                </div>
+                <div id="c3" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores doloribus, natus aspernatur placeat impedit libero earum perferendis nostrum nesciunt est consectetur! Numquam explicabo in ullam neque cumque, dolorem facilis fugiat?
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ACCORDION -->
+
+
+        <!-- DROPDOWN -->
+        <div class="dropdown my-3 btn-group">
+            <a href="https://www.instagram.com" class="btn btn-dark">Instagram</a>
+            <a href="#" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" data-target="#dropdown-1"></a>
+            <div class="dropdown-menu">
+                <a href="https://www.google.com.br" class="dropdown-item">Google</a>
+                <a href="https://www.facebook.com.br" class="dropdown-item">Facebook</a>
+                <div class="dropdown-divider"></div>
+                <a 
+                href="https://www.youtube.com.br" class="dropdown-item">Youtube</a>
+            </div>
+        </div>
+        <!-- DROPDOWN -->
+
+
+        <!-- FORMULÁRIOS -->
+        <form method="POST">
+            E-mail: <br><br>
+            <input type="email" name="txt-email"><br><br>
+            Senha: <br><br>
+            <input type="password" name="txt-senha"><br><br>
+            <input type="submit" value="Entrar">
+        </form>
+        <hr>
+        <form method="POST">
+            <div class="form-group">
+                <label for="txt-email">E-mail:</label>
+                <input type="email" id="txt-email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="txt-password">Senha:</label>
+                <input type="password" id="txt-password" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Entrar" class="btn btn-dark">
+            </div>
+        </form>
+        <!-- FORMULÁRIOS -->
+
+
+        <!-- INPUT GROUP -->
+        <form method="POST" class="my-2">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                </div>
+                <input type="text" name="txt-twitter" class="form-control" placeholder="Usuário">
+            </div>
+            <div class="input-group">
+                <input type="text" name="txt-twitter" class="form-control" placeholder="Seu nome de e-mail">
+                <div class="input-group-append">
+                    <span class="input-group-text">@ideias.com.br</span>
+                </div>
+            </div>
+        </form>
+        <!-- INPUT GROUP -->
+
+
+        <!-- LIST GROUP -->
+        <ul class="list-group my-2">
+            <li class="list-group-item d-flex justify-content-between align-items-center">Item 1 <span class="badge badge-dark badge-pill">12</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Item 2</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Item 3</li>
+        </ul>
+
+        <div class="list-group my-2">
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex justify-content-between">
+                    <h5>Titulo da notícia 1</h5>
+                    <small>2 dias atrás</small>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ea fugit beatae esse laboriosam quam aliquid reiciendis eveniet doloremque unde dolorem, voluptas voluptates ipsum voluptatem. Et aut amet id vero!
+                </p>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex justify-content-between">
+                    <h5>Titulo da notícia 2</h5>
+                    <small>2 dias atrás</small>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ea fugit beatae esse laboriosam quam aliquid reiciendis eveniet doloremque unde dolorem, voluptas voluptates ipsum voluptatem. Et aut amet id vero!
+                </p>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex justify-content-between">
+                    <h5>Titulo da notícia 3</h5>
+                    <small>2 dias atrás</small>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur ea fugit beatae esse laboriosam quam aliquid reiciendis eveniet doloremque unde dolorem, voluptas voluptates ipsum voluptatem. Et aut amet id vero!
+                </p>
+            </a>
+        </div>
+        <!-- LIST GROUP -->
+    </div>
+
+    <!-- ESTRUTURA DO SITE -->
+
+    <!-- SCRIPT -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- SCRIPT -->
 </body>
+
 </html>
