@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap V3</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Meu primeiro sistema Bootstrap</h1>
+            <p><abbr title="Funcionalidade abbr">Este é </abbr><small>meu primeiro</small> <mark>teste.</mark></p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-9">
+                <blockquote>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex eum qui iure deleniti dolorum? Nisi perferendis nostrum quis
+                    aliquid est, veritatis eaque quidem aut! Odio ut rem tenetur sit nam.
+                    <footer>Autor Desconhecido</footer>
+                </blockquote>
+                <blockquote class="blockquote-reverse">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex eum qui iure deleniti dolorum? Nisi perferendis nostrum quis
+                    aliquid est, veritatis eaque quidem aut! Odio ut rem tenetur sit nam.
+                    <footer>Autor Desconhecido</footer>
+                </blockquote>
+                <pre>
+                Do jeito que você escreveu !
+            </pre>
+                <p class="text-danger bg-danger">Este texto representa algum tipo de perigo</p>
+                <p class="text-success bg-success">Este texto representa algum tipo de sucesso</p>
+                <p class="text-info bg-info">Este texto representa algum tipo de info</p>
+                <p class="text-warning bg-warning">Este texto representa algum tipo de cuidado</p>
+                <p class="text-primary bg-primary">Este texto representa algum tipo de primária</p>
+                <p class="text-center">Este texto está centralizado</p>
+                <p class="text-uppercase">Este texto está Uppercase</p>
+                <p class="text-lowercase">Este texto está LowerCase</p>
+            </div>
+            <div class="col-sm-3">
+                <dl>
+                    <dt>Café</dt>
+                    <dd>Bebidade quente preta</dd>
+                    <dt>Leite</dt>
+                    <dd>Bebidade fria branca</dd>
+                </dl>
+                <p>Para fazer uma citação no Bootstrap, use <code>Blockquote</code> e também<code>footer</code></p>
+                <p>Para salvar, aperte as teclas <kbd>ctrl +s</kbd></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-striped table-bordered table-hover"> <!-- table-condensed -->
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Sobrenome</th>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="active">
+                            <td>Edinei</td>
+                            <td>Rodrigues</td>
+                            <td>edinei@gmail.com</td>
+                        </tr>
+                        <tr class="sucess">
+                            <td>Edinei</td>
+                            <td>Rodrigues</td>
+                            <td>edinei@gmail.com</td>
+                        </tr>
+                        <tr class="danger">
+                            <td>Edinei</td>
+                            <td>Rodrigues</td>
+                            <td>edinei@gmail.com</td>
+                        </tr>
+                        <tr class="warning">
+                            <td>Edinei</td>
+                            <td>Rodrigues</td>
+                            <td>edinei@gmail.com</td>
+                        </tr>
+                        <tr class="info">
+                            <td>Edinei</td>
+                            <td>Rodrigues</td>
+                            <td>edinei@gmail.com</td>
+                        </tr>
+                        <tr class="primary">
+                            <td>Edinei</td>
+                            <td>Rodrigues</td>
+                            <td>edinei@gmail.com</td>
+                        </tr>
+                        <tr class="info">
+                            <td>Edinei</td>
+                            <td>Rodrigues</td>
+                            <td>edinei@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="assets/img/img.jpg" alt="Imagem" class="img-responsive img-rounded img-circle img-thumbnail">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-info">Este é um botão</button>
+
+                <h4>Qual empresa vc prefere?</h4>
+                <div class="btn-group btn-group-justified">
+                    <a class="btn btn-info">Apple</a>
+                    <a class="btn btn-info active">Samsung</a>
+                    <a class="btn btn-info">Sony</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">Escolha <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Linguagens</li>
+                        <li><a href="#">PHP</a></li>
+                        <li class="disabled"><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">JS</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">RUBY</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="alert alert-success fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    Senha criada com sucesso !
+                </div>
+                <div class="alert alert-danger fade in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    E-mail e/ou senha incorretos !
+                </div>
+                <div class="alert alert-warning fade in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    Sua fatura está vencendo...
+                </div>
+                <a href="#" class="btn btn-info">Mensagens <span class="badge">7</span></a>
+                <h4>Menu novo <span class="label label-danger">novo</span></h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- SCRIPTS -->
+</body>
+
+</html>
