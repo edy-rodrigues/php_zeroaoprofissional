@@ -304,6 +304,81 @@
             </a>
         </div>
         <!-- LIST GROUP -->
+
+
+        <!-- MODAL -->
+        <button class="btn btn-dark my-2" data-toggle="modal" data-target="#modal">Abrir modal</button>
+        <div class="modal fade" id="modal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Titulo do Modal</h5>
+                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic minus doloribus provident doloremque officia, vero ab aperiam et amet facere eius ducimus tempore repudiandae animi placeat explicabo est recusandae.
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-info" data-dismiss="modal">Salvar</button>
+                        <button class="btn btn-dark" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL -->
+
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="#" class="navbar-brand">Empresa XYZ</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-mobile"><span class="navbar-toggler-icon"></span></button>
+            <div id="navbar-mobile" class="navbar-collapse collapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link">Link 1</a>
+                    <a href="#" class="nav-item nav-link">Link 2</a>
+                    <a href="#" class="nav-item nav-link">Link 3</a>
+                    <a href="#" class="nav-item nav-link">Link 4</a>
+                </div>
+            </div>
+
+            <span class="navbar-text mx-2">
+                Algum texto qualquer..
+            </span>
+
+            <form method="POST" class="form-inline">
+                <input type="search" class="form-control" placeholder="Pesquisar...">
+            </form>
+
+        </nav>
+        <!-- NAVBAR -->
+
+
+        <!-- PAGINAÇÃO -->
+        <ul class="pagination my-5 justify-content-center">
+            <li class="page-item disabled"><a href="#" class="page-link">Anterior</a></li>
+            <li class="page-item active"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item"><a href="#" class="page-link">6</a></li>
+            <li class="page-item"><a href="#" class="page-link">7</a></li>
+            <li class="page-item"><a href="#" class="page-link">8</a></li>
+            <li class="page-item"><a href="#" class="page-link">9</a></li>
+            <li class="page-item"><a href="#" class="page-link">10</a></li>
+            <li class="page-item"><a href="#" class="page-link">Próximo</a></li>
+        </ul>
+        <!-- PAGINAÇÃO -->
+
+
+        <!-- TOOLTIP -->
+        <button class="btn btn-dark btn-block my-3 w-50 mx-auto" data-toggle="tooltip" title="Ao clicar, irá salvar os dados do usuário">Salvar</button>
+        <!-- TOOLTIP -->
+
+
+        <!-- UTILIDADES -->
+        
+        <!-- UTILIDADES -->
     </div>
 
     <!-- ESTRUTURA DO SITE -->
@@ -312,6 +387,11 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.bundle.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        $(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+    </script>
     <!-- SCRIPT -->
 </body>
 
