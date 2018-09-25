@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Projeto: Clima em Tempo Real</title>
+    <style>
+        #resultado {
+            width: 150px;
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txt-cidade">
+    <button>Pesquisar</button>
+
+    <div id="resultado">0º C</div>
+
+    <script src="../jquery-3.2.1.min.js"></script>
+    <script>
+    $(function() {
+        $('button').on('click', function() {
+            var cidade = $('#txt-cidade').val()
+            var now = new Date()
+            var tempURL = 'https://query.yahooapis.com/v1/public/yql?format=json&rnd=' + now.getFullYear() + now.getMonth() + now.getDay() + now.getHours() + '&diagnostics=true&callback=?&q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="'+ cidade +'") and u="c"'
+
+            $.ajax({
+                url: encodeURI(tempURL),
+                dataType: 'json',
+                type: 'GET',
+                beforeSend: function() {
+                    $('#resultado').text('Carregando...')
+                },
+                success: function(data) {
+                    if(data !== null && data.query !== null && data.query.results !== null && data.query.results.channel.description !== 'Yahoo! Weather Erro') {
+                        var temp = data.query.results.channel.item.condition.temp;
+
+                        $('#resultado').text(temp+'º C')
+                    }
+                },
+                error: function() {
+                    $('#resultado').text('Erro')
+                }
+            })
+        })
+    })
+    </script>
+</body>
+</html>

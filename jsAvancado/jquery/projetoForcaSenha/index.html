@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Projeto Força de Senha</title>
+</head>
+<body>
+    <input type="password" name="txt-senha" id="txt-senha">
+    <div id="status-forca"></div>
+    <script src="../jquery-3.2.1.min.js"></script>
+    <script>
+    $(function() {
+        $('#txt-senha').on('keyup', function() {
+            var senha = $(this).val()
+            var forca = 0
+
+            // Letras, numeros, caracteres especiais, min. de caracteres
+            if(senha.length > 6) {
+                forca += 25
+            }
+
+            var reg = new RegExp(/[A-z]/i)
+            if(reg.test(senha)) {
+                forca += 25
+            }
+
+            var reg = new RegExp(/[0-9]/i)
+            if(reg.test(senha)) {
+                forca += 25
+            }
+
+            var reg = new RegExp(/[^A-z0-9]/i)
+            if(reg.test(senha)) {
+                forca += 25
+            }
+
+
+            $('#status-forca').text('Força da senha: ' + forca)
+        })
+    })
+    </script>
+</body>
+</html>
