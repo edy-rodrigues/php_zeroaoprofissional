@@ -30,11 +30,17 @@ if(empty($_SESSION['cLogin'])) {
 
             foreach ($anuncios as $item): ?>
             <tr>
-                <td><img src="assets/img/anuncios/<?php echo $item['url'] ?>" border="0"></td>
+                <td>
+                <?php if(!empty($item['url'])): ?>
+                <img src="assets/img/anuncios/<?php echo $item['url']; ?>" border="0" height="75">
+                <?php else: ?>
+                <img src="assets/img/default.png" height="75" border="0">
+                <?php endif; ?>
+                </td>
                 <td><?php echo $item["titulo"]; ?></td>
                 <td><?php echo number_format($item["valor"], 2); ?></td>
-                <td></td>
-                <td></td>
+                <td><a href="editar-anuncio.php?id=<?php echo $item['id'] ?>" class="btn btn-warning">Editar</a></td>
+                <td><a href="excluir-anuncio.php?id=<?php echo $item['id'] ?>" class="btn btn-danger">Excluir</a></td>
             </tr>
             <?php  endforeach; ?>
         </tbody>

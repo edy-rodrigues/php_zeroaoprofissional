@@ -17,6 +17,31 @@ class Anuncio {
         return $array;
     }
 
+    public function readOne($id) {
+        global $pdo;
+        $array = [];
+
+        $sql = $pdo->prepare("SELECT * FROM tb_anuncio WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+            $array['fotos'] = [];
+
+            $sql = "SELECT id, url FROM tb_anuncio_imagem WHERE id_anuncio = :id_anuncio";
+            $sql = $pdo->prepare($sql);
+            $sql->bindValue(":id_anuncio", $id);
+            $sql->execute();
+
+            if($sql->rowCount() > 0) {
+                $array['fotos'] = $sql->fetchAll();
+            }
+        }
+
+        return $array;
+    }
+
     public function create($titulo, $categoria, $valor, $descricao, $estado) {
         global $pdo;
 
@@ -35,6 +60,96 @@ class Anuncio {
         } else {
             return false;
         }
+    }
+
+    public function update($id, $titulo, $categoria, $valor, $descricao, $estado, $fotos) {
+        global $pdo;
+
+        $sql = "UPDATE tb_anuncio SET titulo = :titulo, id_usuario = :id_usuario, id_categoria = :id_categoria, valor = :valor, descricao = :descricao, estado = :estado WHERE id = :id";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":titulo", $titulo);
+        $sql->bindValue(":id_usuario", $_SESSION['cLogin']);
+        $sql->bindValue(":id_categoria", $categoria);
+        $sql->bindValue(":valor", $valor);
+        $sql->bindValue(":descricao", $descricao);
+        $sql->bindValue(":estado", $estado);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        if(count($fotos) > 0) {
+            for ($i=0; $i < count($fotos['tmp_name']); $i++) { 
+                $tipo = $fotos['type'][$i];
+                if(in_array($tipo, array('image/jpeg', 'image/png'))) {
+                    $temp_name = md5(time().rand(0, 999)).'.jpg';
+                    move_uploaded_file($fotos['tmp_name'][$i], 'assets/img/anuncios/'.$temp_name);
+
+                    list($width_orig, $height_orig) = getimagesize('assets/img/anuncios/'.$temp_name);
+                    $ratio = $width_orig / $height_orig;
+
+                    $width = 500;
+                    $height = 500;
+
+                    if($width/$height > $ratio) {
+                        $width = $height * $ratio;
+                    } else {
+                        $height = $width / $ratio;
+                    }
+
+                    $img = imagecreatetruecolor($width, $height);
+                    if($tipo == 'image/jpeg') {
+                        $img_orig = imagecreatefromjpeg('assets/img/anuncios/'.$temp_name);
+                    } else if($tipo == 'image/png') {
+                        $img_orig = imagecreatefrompng('assets/img/anuncios/'.$temp_name);
+                    }
+
+                    imagecopyresampled($img, $img_orig, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+
+                    imagejpeg($img, 'assets/img/anuncios/'.$temp_name, 80);
+
+                    $sql = "INSERT INTO tb_anuncio_imagem(id_anuncio, url) VALUES(:id_anuncio, :url)";
+                    $sql = $pdo->prepare($sql);
+                    $sql->bindValue(":id_anuncio", $id);
+                    $sql->bindValue(":url", $temp_name);
+                    $sql->execute();
+                }
+            }
+        }
+    }
+
+    public function delete($id) {
+        global $pdo;
+        $sql = "DELETE FROM tb_anuncio_imagem WHERE id_anuncio = :id_anuncio";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":id_anuncio", $id);
+        $sql->execute();
+
+        $sql = "DELETE FROM tb_anuncio WHERE id = :id";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+    }
+
+    public function deletePhoto($id) {
+        global $pdo;
+
+        $id_anuncio = 0;
+
+        $sql = "SELECT id_anuncio FROM tb_anuncio_imagem WHERE id = :id";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $sql = $sql->fetch();
+            $id_anuncio = $sql['id_anuncio'];
+        }
+
+        $sql = "DELETE FROM tb_anuncio_imagem WHERE id = :id";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        return $id_anuncio;
     }
 
 }
