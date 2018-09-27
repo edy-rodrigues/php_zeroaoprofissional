@@ -8,11 +8,14 @@ class Reserva {
         $this->pdo = $pdo;
     }
 
-    public function readAll() {
+    public function readAll($data_inicio, $data_fim) {
         $array = [];
 
-        $sql = "SELECT * FROM tb_reserva";
-        $sql = $this->pdo->query($sql);
+        $sql = "SELECT * FROM tb_reserva WHERE (NOT(data_inicio > :data_fim OR data_fim < :data_inicio))";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(':data_inicio', $data_inicio);
+        $sql->bindValue(':data_fim', $data_fim);
+        $sql->execute();
 
         if($sql->rowCount() > 0) {
             $array = $sql->fetchAll();
