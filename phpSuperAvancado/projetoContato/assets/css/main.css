@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    flex: 1;
+    max-width: 800px;
+    padding: 20px;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+}
+
+table th {
+    border: 1px solid #333;
+    color: #444;
+}
+
+table td {
+    text-align: center;
+    border: 1px solid #555;
+}
+
+table td.acoes {
+    display: flex;
+    justify-content: space-around;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, .6);
+    display: none;
+}
+
+#modal .modal-content {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    top: 100px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .4);
+    z-index: 1001;
+}
