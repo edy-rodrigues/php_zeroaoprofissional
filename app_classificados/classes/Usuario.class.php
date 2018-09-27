@@ -2,6 +2,16 @@
 
 class Usuario {
 
+    public function getTotalUsuario() {
+        global $pdo;
+
+        $sql = "SELECT COUNT(*) AS c FROM tb_usuario";
+        $sql = $pdo->query($sql);
+        $sql = $sql->fetch();
+
+        return $sql['c'];
+    }
+
     public function create($nome, $email, $senha, $telefone) {
         global $pdo;
         $sql = "SELECT id FROM tb_usuario WHERE email = :email";

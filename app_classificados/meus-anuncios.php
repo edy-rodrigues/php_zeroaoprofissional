@@ -37,8 +37,8 @@ if(empty($_SESSION['cLogin'])) {
                 <img src="assets/img/default.png" height="75" border="0">
                 <?php endif; ?>
                 </td>
-                <td><?php echo $item["titulo"]; ?></td>
-                <td><?php echo number_format($item["valor"], 2); ?></td>
+                <td><?php echo utf8_encode($item["titulo"]); ?></td>
+                <td><?php echo "R$ ".number_format($item["valor"], 2); ?></td>
                 <td><a href="editar-anuncio.php?id=<?php echo $item['id'] ?>" class="btn btn-warning">Editar</a></td>
                 <td><a href="excluir-anuncio.php?id=<?php echo $item['id'] ?>" class="btn btn-danger">Excluir</a></td>
             </tr>

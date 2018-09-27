@@ -2,6 +2,105 @@
 
 class Anuncio {
 
+    public function getTotalAnuncioFiltrado($filtros) {
+        global $pdo;
+
+        $filtrostring = ['1=1'];
+        if(!empty($filtros['categoria'])) {
+            $filtrostring[] = "tb_anuncio.id_categoria = :id_categoria";
+        }
+        if(!empty($filtros['preco'])) {
+            $preco = explode("-", $filtros['preco']);
+            if(count($preco) > 1) {
+                $filtrostring[] = "tb_anuncio.valor BETWEEN :preco1 AND :preco2";
+            } else {
+                $filtrostring[] = "tb_anuncio.valor >= :preco";
+            }
+        }
+        if($filtros['estado'] != "") {
+            $filtrostring[] = "tb_anuncio.estado = :estado";
+        }
+        $sql = "SELECT COUNT(*) AS c FROM tb_anuncio WHERE ". implode(' AND ', $filtrostring) ."";
+        $sql = $pdo->prepare($sql);
+        if(!empty($filtros['categoria'])) {
+            $sql->bindValue(':id_categoria', $filtros['categoria']);
+        }
+        if(!empty($filtros['preco'])) {
+            $preco = explode('-', $filtros['preco']);
+            if(count($preco) > 1) {
+                $sql->bindValue(':preco1', $preco[0]);
+                $sql->bindValue(':preco2', $preco[1]);
+            } else {
+                $sql->bindValue(':preco', $preco[0]);
+            }
+        }
+        if($filtros['estado'] != "") {
+            $sql->bindValue(':estado', $filtros['estado']);
+        }
+        $sql->execute();
+        $sql = $sql->fetch();
+
+        return $sql['c'];
+    }
+
+    public function getTotalAnuncio() {
+        global $pdo;
+
+        $sql = "SELECT COUNT(*) AS c FROM tb_anuncio";
+        $sql = $pdo->query($sql);
+        $sql = $sql->fetch();
+
+        return $sql['c'];
+    }
+
+    public function getUltimosAnuncios($page, $perPage, $filtros) {
+        global $pdo;
+
+        $offset = ($page - 1) * $perPage;
+
+        $array = [];
+
+        $filtrostring = ['1=1'];
+        if(!empty($filtros['categoria'])) {
+            $filtrostring[] = "tb_anuncio.id_categoria = :id_categoria";
+        }
+        if(!empty($filtros['preco'])) {
+            $preco = explode("-", $filtros['preco']);
+            if(count($preco) > 1) {
+                $filtrostring[] = "tb_anuncio.valor BETWEEN :preco1 AND :preco2";
+            } else {
+                $filtrostring[] = "tb_anuncio.valor >= :preco";
+            }
+        }
+        if($filtros['estado'] != "") {
+            $filtrostring[] = "tb_anuncio.estado = :estado";
+        }
+
+        $sql = $pdo->prepare("SELECT *, (SELECT tb_anuncio_imagem.url FROM tb_anuncio_imagem WHERE tb_anuncio_imagem.id_anuncio = tb_anuncio.id limit 1) AS url, (SELECT tb_categoria.nome FROM tb_categoria WHERE tb_categoria.id = tb_anuncio.id_categoria) AS categoria FROM tb_anuncio WHERE ". implode(' AND ', $filtrostring) ." ORDER BY id DESC LIMIT $offset, $perPage");
+        if(!empty($filtros['categoria'])) {
+            $sql->bindValue(':id_categoria', $filtros['categoria']);
+        }
+        if(!empty($filtros['preco'])) {
+            $preco = explode('-', $filtros['preco']);
+            if(count($preco) > 1) {
+                $sql->bindValue(':preco1', $preco[0]);
+                $sql->bindValue(':preco2', $preco[1]);
+            } else {
+                $sql->bindValue(':preco', $preco[0]);
+            }
+        }
+        if($filtros['estado'] != "") {
+            $sql->bindValue(':estado', $filtros['estado']);
+        }
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+
+        return $array;
+    }
+
     public function readAll() {
         global $pdo;
         $array = [];
@@ -21,7 +120,7 @@ class Anuncio {
         global $pdo;
         $array = [];
 
-        $sql = $pdo->prepare("SELECT * FROM tb_anuncio WHERE id = :id");
+        $sql = $pdo->prepare("SELECT *, (SELECT tb_categoria.nome FROM tb_categoria WHERE tb_categoria.id = tb_anuncio.id_categoria) AS categoria, (SELECT tb_usuario.telefone FROM tb_usuario WHERE tb_usuario.id = tb_anuncio.id_usuario) AS telefone FROM tb_anuncio WHERE id = :id");
         $sql->bindValue(":id", $id);
         $sql->execute();
 
