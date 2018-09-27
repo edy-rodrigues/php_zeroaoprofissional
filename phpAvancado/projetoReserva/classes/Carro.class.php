@@ -22,7 +22,18 @@ class Carro {
     }
 
     public function readOne($id) {
-        
+        $carro = [];
+
+        $sql = "SELECT * FROM tb_carro WHERE id = :id";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $carro = $sql->fetch();
+        }
+
+        return $carro;
     }
 
 }
