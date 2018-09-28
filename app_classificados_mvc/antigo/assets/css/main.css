@@ -1,0 +1,26 @@
+table tbody tr td {
+    vertical-align: middle !important;
+    padding: 4px !important;
+}
+
+.foto_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 270px;
+    margin-right: 10px;
+    float: left;
+}
+
+.foto_item img {
+    min-width: 120px;
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+footer {
+    padding: 1rem;
+}
