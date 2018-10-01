@@ -16,7 +16,7 @@ class cadastrarController extends Controller {
             if(!empty($nome) && !empty($email) && !empty($senha)) {
                 $dados['campos_vazio'] = false;
                 if($usuario->create($nome, $email, $senha, $telefone)) {
-                    $dados['login_sucesso'] = true;
+                    $dados['cadastrar_sucesso'] = true;
                 }
             } else if(empty($email)) {
                 $dados['txt_email'] = false;

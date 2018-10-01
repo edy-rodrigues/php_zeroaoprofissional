@@ -15,7 +15,7 @@ if(isset($_POST['txt-titulo']) && empty($_POST['txt-titulo'])) {
     <div class="alert alert-danger">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <h4><strong>Que pena! Não foi possível editar seu produto.</strong></h4>
-        <p>Por favor preencha o título do seu produto.</p>
+        <p>Você deve preencher o <strong>título do seu produto</strong>.</p>
     </div>
     <?php
 } else {
@@ -46,7 +46,7 @@ if(isset($_POST['txt-titulo']) && empty($_POST['txt-titulo'])) {
             <div class="alert alert-danger">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <h4><strong>Campos em branco.</strong></h4>
-                <p>Por favor preencha a categoria do seu produto.</p>
+                <p>Você deve preencher a <strong>categoria do seu produto</strong>.</p>
             </div>
             <?php
         } else if(empty($valor)) {
@@ -54,7 +54,7 @@ if(isset($_POST['txt-titulo']) && empty($_POST['txt-titulo'])) {
             <div class="alert alert-danger">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <h4><strong>Campos em branco.</strong></h4>
-                <p>Por favor preencha o valor do seu produto.</p>
+                <p>Você deve preencher o <strong>valor do seu produto</strong>.</p>
             </div>
             <?php
         } else if(empty($descricao)) {
@@ -62,7 +62,7 @@ if(isset($_POST['txt-titulo']) && empty($_POST['txt-titulo'])) {
             <div class="alert alert-danger">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <h4><strong>Campos em branco.</strong></h4>
-                <p>Por favor preencha a descricao do seu produto.</p>
+                <p>Você deve preencher a <strong>descrição do seu produto</strong>.</p>
             </div>
             <?php
         } else if(empty($estado)) {
@@ -70,7 +70,7 @@ if(isset($_POST['txt-titulo']) && empty($_POST['txt-titulo'])) {
             <div class="alert alert-danger">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <h4><strong>Campos em branco.</strong></h4>
-                <p>Por favor preencha o estado do seu produto.</p>
+                <p>Você deve preencher o <strong>estado do seu produto</strong>.</p>
             </div>
             <?php
         }

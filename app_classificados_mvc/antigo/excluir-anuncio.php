@@ -12,5 +12,5 @@ $Anuncio = new Anuncio();
 if(isset($_GET['id']) && !empty($_GET['id'])) {
     $Anuncio->delete($_GET['id']);
 }
-header("Location: meus-anuncios.php")
+header("Location: meus-anuncios.php");
 ?>

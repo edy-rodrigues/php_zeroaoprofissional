@@ -17,7 +17,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <?php if(isset($_SESSION['cLogin']) && !empty($_SESSION['cLogin'])): ?>
                 <li><a href="<?php echo BASE_URL; ?>anuncios">Meus Anúncios</a></li>
-                <li><a href="<?php echo BASE_URL; ?>login/sair">Sair</a></li>
+                <li><a href="<?php echo BASE_URL; ?>login/logout">Sair</a></li>
                 <?php else: ?>
                 <li><a href="<?php echo BASE_URL; ?>cadastrar">Cadastre-se</a></li>
                 <li><a href="<?php echo BASE_URL; ?>login">Login</a></li>

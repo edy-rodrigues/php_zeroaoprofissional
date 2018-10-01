@@ -11,12 +11,12 @@
         <?php
     } else {
         if(isset($campos_vazio) && !$campos_vazio) {
-            if(isset($login_sucesso) && $login_sucesso) {
+            if(isset($cadastrar_sucesso) && $cadastrar_sucesso) {
                 ?>
                 <div class="alert alert-success">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <h4><strong>Parabéns</strong></h4>
-                    <p>Cadastro feito com sucesso. <a href="login.php">Faça o login agora</a></p>
+                    <p>Cadastro feito com sucesso. <a href="<?php echo BASE_URL ?>/login">Faça o login agora</a></p>
                 </div>
                 <?php 
             } else {
@@ -24,7 +24,7 @@
                 <div class="alert alert-danger">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <h4><strong>Erro ao cadastrar</strong></h4>
-                    <p>Já existe um usuário com estes dados. <a href="login.php">Faça o login agora</a></p>
+                    <p>Já existe um usuário com estes dados. <a href="<?php echo BASE_URL ?>/login">Faça o login agora</a></p>
                 </div>
                 <?php
             }
