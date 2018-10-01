@@ -4,7 +4,7 @@ require_once "environment.php";
 $config = [];
 
 if(ENVIRONMENT == 'development') {
-    define("BASE_URL", "http://phpzeroaoprofissional.pc:8080/app_classificados_mvc/");
+    define("BASE_URL", "http://localhost/php_zeroaoprofissional/app_classificados_mvc/");
     $config["dbname"] = "db_projetoclassificados";
     $config["host"] = "localhost";
     $config["dbuser"] = "root";
