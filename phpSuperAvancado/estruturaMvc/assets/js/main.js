@@ -1,1 +1,1 @@
-alert("oi")
+console.log("JAVASCRIPT = TRUE")

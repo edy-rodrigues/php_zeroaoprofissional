@@ -1,0 +1,7 @@
+{
+    "name": "Edinei Rodrigues Filho",
+    "require": {
+        "monolog/monolog": "1.0.*"
+    },
+    "description": "Meu primeiro composer"
+}

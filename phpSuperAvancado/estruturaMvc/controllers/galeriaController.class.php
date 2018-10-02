@@ -9,5 +9,10 @@ class galeriaController extends Controller {
         $this->loadTemplate("galeria", $dados);
     }
 
+    public function abrir($id, $titulo) {
+        echo $id."<br>";
+        echo $titulo."<br>";
+    }
+
 }
 ?>

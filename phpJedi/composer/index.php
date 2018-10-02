@@ -1,7 +1,7 @@
 <?php
 session_start();
+require_once "vendor/autoload.php";
 require_once "config.php";
-require_once "routes.php";
 
 spl_autoload_register(function($class) {
     if(file_exists("controllers/".$class.".class.php")) {
@@ -14,6 +14,11 @@ spl_autoload_register(function($class) {
         require_once "core/".$class.".class.php";
     }
 });
+
+$Log = new Monolog\Logger("teste");
+$Log->pushHandler(new Monolog\Handler\StreamHandler("erros.log", Monolog\Logger::WARNING));
+
+$Log->addError("Aviso! Deu algo errado!");
 
 $Core = new Core();
 $Core->run();
