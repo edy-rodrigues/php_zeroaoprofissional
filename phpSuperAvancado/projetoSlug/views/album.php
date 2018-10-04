@@ -1,0 +1,1 @@
+<h3>Album de <?php echo $album['titulo']; ?></h3>
