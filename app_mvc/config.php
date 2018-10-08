@@ -5,7 +5,7 @@ $config = [];
 
 if(ENVIRONMENT == 'development') {
     define("BASE_URL", "http://phpzeroaoprofissional.pc:8080/yourDomain/");
-    $config["dbname"] = "db_yourProject";
+    $config["dbname"] = "db_yourDB";
     $config["host"] = "localhost";
     $config["dbuser"] = "root";
     $config["dbpass"] = "";
