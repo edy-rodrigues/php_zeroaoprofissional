@@ -1,0 +1,62 @@
+body {
+    background-color: #f2f2f2;
+}
+
+header, section, footer {
+    max-width: 800px;
+    background-color: #fff;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    box-shadow: 3px 1px 20px -8px rgba(0, 0, 0, .3);
+    padding: 1rem 2rem;
+    flex-direction: column;
+}
+
+header {
+    height: 100px;
+    text-align: center;
+    justify-content: center;
+}
+
+footer {
+    height: 80px;
+    text-align: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.btn {
+    background-color: #1e90ff;
+    color: #fff;
+    padding: 0.7rem;
+    border-radius: 5px;
+    box-shadow: 3px 1px 20px -8px rgba(0, 0, 0, .7);
+    align-self: baseline;
+    border: none;
+    cursor: pointer;
+}
+
+.my {
+    margin: 1rem 0;
+}
+
+.error {
+    color: #e21b1b;
+}
+
+.btn-red {
+    background-color: #e21b1b;
+}
+
+table td, table th  {
+    border: 1px solid #333;
+    padding: 1rem;
+    text-align: center;
+    color: #333;
+}

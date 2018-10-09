@@ -1,0 +1,7 @@
+.borda {
+    margin-top: 1rem;
+    border: 1px solid darkcyan;
+    padding: 20px;
+    width: 400px;
+    height: 100px;
+}

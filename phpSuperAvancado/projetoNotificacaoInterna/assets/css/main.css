@@ -1,0 +1,12 @@
+.notificacoes {
+    width: 30px;
+    height: 30px;
+    border: 2px solid darkcyan;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notificacoes.temNotif {
+    border-color: #ff1e4b;
+}
