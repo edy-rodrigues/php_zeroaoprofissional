@@ -3,7 +3,7 @@ require_once "fb.php";
 
 $helper = $fb->getRedirectLoginHelper();
 
-$permissions = array('email');
+$permissions = array('email', 'user_photos');
 
 $loginurl = $helper->getLoginUrl('https://localhost/php_zeroaoprofissional/webservice/fbLogin/callback.php', $permissions);
 ?>
