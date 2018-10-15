@@ -5,7 +5,7 @@ $helper = $fb->getRedirectLoginHelper();
 
 $permissions = array('email', 'user_photos');
 
-$loginurl = $helper->getLoginUrl('https://localhost/php_zeroaoprofissional/webservice/fbLogin/callback.php', $permissions);
+$loginurl = $helper->getLoginUrl('http://localhost/php_zeroaoprofissional/webservice/fbLogin/callback.php', $permissions);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
