@@ -81,6 +81,79 @@ class Users extends Model {
         return $array;
     }
 
+    public function editInfo($id, $data) {
+
+        if($id === $this->getId()) {
+            
+            $toChange = array();
+
+            if(!empty($data['name'])) {
+                $toChange['name'] = $data['name'];
+            }
+            if(!empty($data['email'])) {
+                if(filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                    if(!$this->emailExists($data['email'])) {
+                        $toChange['email'] = $data['email'];
+                    } else {
+                        return 'E-mail já existente';
+                    }
+                } else {
+                    return 'Email inválido';
+                }
+            }
+            if(!empty($data['pass'])) {
+                $toChange['pass'] = password_hash($data['pass'], PASSWORD_DEFAULT);
+            }
+
+            if(count($toChange) > 0) {
+
+                $fields = array();
+
+                foreach ($toChange as $k => $v) {
+                    $fields[] = $k.' = :'.$k;
+                }
+
+                $sql = "UPDATE tb_users SET ". implode(',', $fields) ." WHERE id = :id";
+                $sql = $this->db->prepare($sql);
+                $sql->bindValue(":id", $id);
+                foreach ($toChange as $k => $v) {
+                    $sql->bindValue(":".$k, $v);
+                }
+                $sql->execute();
+
+                return '';
+            } else {
+                return 'Não há dados a ser modificados';
+            }
+
+        } else {
+            return 'Você não tem permissão para está ação';
+        }
+
+    }
+
+    public function delete($id) {
+        if($id === $this->getId()) {
+            
+            $Photos = new Photos();
+            $Photos->deleteAll($id);
+
+            $sql = "DELETE FROM tb_users_following WHERE id_user_active = :id OR id_user_passive = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id", $id);
+            $sql->execute();
+
+            $sql = "DELETE FROM tb_users WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id", $id);
+            $sql->execute();
+
+            return '';
+        } else {
+            return 'Você não tem permissão para está ação';
+        }
+    }
+
     public function getFollowingCount($id_user) {
         $sql = "SELECT COUNT(*) AS c FROM tb_users_following WHERE id_user_active = :id";
         $sql = $this->db->prepare($sql);
