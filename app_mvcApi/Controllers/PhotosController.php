@@ -69,6 +69,107 @@ class PhotosController extends Controller {
                     $array['data'] = $Photos->getPhoto($id_photo);
                 break;
                 case 'DELETE':
+                    $array['error'] = $Photos->deletePhoto($id_photo, $Users->getId());
+                break;
+                default:
+                    $array['error'] = 'Método '. $method .' não disponível';
+                break;
+            }
+
+        } else {
+            $array['error'] = 'Acesso negado';
+        }
+
+        $this->returnJSON($array);
+    }
+
+    public function comment($id_photo) {
+        $array = array(
+            'error' => '',
+            'logged' => false
+        );
+
+        $method = $this->getMethod();
+        $data = $this->getRequestData();
+
+        $Users = new Users();
+        $Photos = new Photos();
+
+        if(!empty($data['token']) && $Users->validateJWT($data['token'])) {
+            $array['logged'] = true;
+
+            switch($method) {
+                case 'POST':
+                    if(!empty($data['comment'])) {
+                        $array['error'] = $Photos->addComment($id_photo, $Users->getId(), $data['comment']);
+                    } else {
+                        $array['error'] = 'Comentário vazio';
+                    }
+                break;
+                default:
+                    $array['error'] = 'Método '. $method .' não disponível';
+                break;
+            }
+
+        } else {
+            $array['error'] = 'Acesso negado';
+        }
+
+        $this->returnJSON($array);
+    }
+
+    public function delete_comment($id_comment) {
+        $array = array(
+            'error' => '',
+            'logged' => false
+        );
+
+        $method = $this->getMethod();
+        $data = $this->getRequestData();
+
+        $Users = new Users();
+        $Photos = new Photos();
+
+        if(!empty($data['token']) && $Users->validateJWT($data['token'])) {
+            $array['logged'] = true;
+
+            switch($method) {
+                case 'DELETE':
+                    $array['error'] = $Photos->deleteComment($id_comment, $Users->getId());
+                break;
+                default:
+                    $array['error'] = 'Método '. $method .' não disponível';
+                break;
+            }
+
+        } else {
+            $array['error'] = 'Acesso negado';
+        }
+
+        $this->returnJSON($array);
+    }
+
+    public function like($id_photo) {
+        $array = array(
+            'error' => '',
+            'logged' => false
+        );
+
+        $method = $this->getMethod();
+        $data = $this->getRequestData();
+
+        $Users = new Users();
+        $Photos = new Photos();
+
+        if(!empty($data['token']) && $Users->validateJWT($data['token'])) {
+            $array['logged'] = true;
+
+            switch($method) {
+                case 'POST':
+                    $array['error'] = $Photos->like($id_photo, $Users->getId());
+                break;
+                case 'DELETE':
+                    $array['error'] = $Photos->unlike($id_photo, $Users->getId());
                 break;
                 default:
                     $array['error'] = 'Método '. $method .' não disponível';

@@ -145,6 +145,35 @@ class Photos extends Model {
         return $array;
     }
 
+    public function deletePhoto($id_photo, $id_user) {
+        $sql = "SELECT id FROM tb_photos WHERE id = :id AND id_user = :id_user";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id", $id_photo);
+        $sql->bindValue(":id_user", $id_user);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $sql = "DELETE FROM tb_photos_comments WHERE id_photo = :id_photo";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id_photo", $id_photo);
+            $sql->execute();
+
+            $sql = "DELETE FROM tb_photos_likes WHERE id_photo = :id_photo";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id_photo", $id_photo);
+            $sql->execute();
+
+            $sql = "DELETE FROM tb_photos WHERE id = :id_photo";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id_photo", $id_photo);
+            $sql->execute();
+
+            return "";
+        } else {
+            return "Está foto não é do usuário correspondente";
+        }
+    }
+
     public function deleteAll($id_user) {
         $sql = "DELETE FROM tb_photos_comments WHERE id_user = :id_user";
         $sql = $this->db->prepare($sql);
@@ -162,5 +191,88 @@ class Photos extends Model {
         $sql->execute();
     }
 
+    public function addComment($id_photo, $id_user, $comment) {
+        $sql = "INSERT INTO tb_photos_comments(id_user, id_photo, date_comment, comment) VALUES(:id_user, :id_photo, NOW(), :comment)";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id_user", $id_user);
+        $sql->bindValue(":id_photo", $id_photo);
+        $sql->bindValue(":comment", $comment);
+        $sql->execute();
+
+        return '';
+    }
+
+    public function deleteComment($id_comment, $id_user) {
+        $sql = "SELECT id, id_photo, id_user FROM tb_photos_comments WHERE id = :id";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id", $id_comment);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $sql = $sql->fetch();
+            $id_photo = $sql['id_photo'];
+
+            if($id_user == $sql['id_user']) {
+                $sql = "DELETE FROM tb_photos_comments WHERE id = :id";
+                $sql = $this->db->prepare($sql);
+                $sql->bindValue(":id", $id_comment);
+                $sql->execute();
+
+                return '';
+            } else {
+                $sql = "SELECT id FROM tb_photos WHERE id_user = :id_user AND id = :id_photo";
+                $sql = $this->db->prepare($sql);
+                $sql->bindValue(":id_user", $id_user);
+                $sql->bindValue(":id_photo", $id_photo);
+                $sql->execute();
+
+                if($sql->rowCount() > 0) {
+                    $sql = "DELETE FROM tb_photos_comments WHERE id = :id";
+                    $sql = $this->db->prepare($sql);
+                    $sql->bindValue(":id", $id_comment);
+                    $sql->execute();
+
+                    return '';
+                } else {
+                    return 'Você não tem permissão para excluir este comentário. Está foto/comentário não é seu.';
+                }
+            }
+            
+        } else {
+            return 'Foto não encontrada.';
+        }
+    }
+
+    public function like($id_photo, $id_user) {
+        $sql = "SELECT id FROM tb_photos_likes WHERE id_user = :id_user AND id_photo = :id_photo";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id_user", $id_user);
+        $sql->bindValue(":id_photo", $id_photo);
+        $sql->execute();
+
+        if($sql->rowCount() == 0) {
+            $sql = "INSERT INTO tb_photos_likes(id_user, id_photo) VALUES(:id_user, :id_photo)";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":id_user", $id_user);
+            $sql->bindValue(":id_photo", $id_photo);
+            $sql->execute();
+
+            return '';
+        } else {
+            return 'Você já deu like nesta foto.';
+        }
+    }
+
+    public function unlike($id_photo, $id_user) {
+        $sql = "DELETE FROM tb_photos_likes WHERE id_user = :id_user AND id_photo = :id_photo";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id_user", $id_user);
+        $sql->bindValue(":id_photo", $id_photo);
+        $sql->execute();
+
+        return '';
+    }
+
 }
+// Clemente Marton Segura, 240
 ?>
