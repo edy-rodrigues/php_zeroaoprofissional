@@ -3,12 +3,12 @@ namespace Controllers;
 
 use \Core\Controller;
 
-class HomeController extends Controller {
+class ServicosController extends Controller {
 
     public function index() {
         $data = array();
-        
-        $this->loadTemplate('home', $data);
+
+        $this->loadTemplate('servicos', $data);
     }
 
 }

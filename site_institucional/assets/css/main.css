@@ -1,0 +1,95 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #1e1e1e;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 980px;
+    margin: auto;
+}
+
+header .header-brand {
+    height: 120px;
+}
+
+header .banner {
+    height: 350px;
+    background-image: url(../images/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    height: 50px;
+    background-color: #0062b7;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 50px;
+}
+
+nav ul li {
+    height: 50px;
+}
+
+nav ul li a {
+    color: #fff;
+    padding: 0 20px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+main {
+    background-color: #fff;
+    min-height: 400px;
+}
+
+main .content {
+    width: 90%;
+    padding-bottom: 3rem;
+}
+
+main .content-portfolio {
+    flex-wrap: wrap;
+}
+
+main .portfolio_item {
+    width: 190px;
+    height: 100px;
+    margin: 10px;
+    border: 3px solid #e2e8ee;
+}
+
+form input,
+form textarea {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+
+form textarea {
+    height: 120px;
+}
+
+form .btn {
+    border: none;
+    color: #f1f1f1;
+    background-color: #0062b7;
+    box-shadow: 5px 8px 5px -5px rgba(0, 0, 0, .6);
+    cursor: pointer;
+}
+
+footer {
+    height: 100px;
+    background-color: #303030;
+    margin-bottom: 50px !important;
+}

@@ -16,6 +16,57 @@
     A cor da letra é: <input type="text" ng-model="cor" style="color: {{ cor }}"><br><br>
     <input type="text" ng-model="real">
     <p>R${{ real }} reais = ${{ real / dolar }} dolares</p>
+    
+    <h2>Receita do Bolo</h2>
+    <input type="text" ng-model="filtrarPor">
+    <ul>
+        <li ng-repeat="ing in ingredientes | filter:filtrarPor">
+            {{ ing.qt }} de {{ ing.nome | uppercase }}
+        </li>
+    </ul>
+
+    <h2>Lista de Nomes</h2>
+    <select ng-model="ordenarPor" ng-options="f for f in ordenarArray">
+    </select><br><br>
+    <table border="0" width="300">
+        <tr>
+            <th align="left" ng-repeat="col in ordenarArray">{{ col | uppercase }}</th>
+        </tr>
+        <tr ng-repeat="n in nomes | orderBy:ordenarPor">
+            <td>{{ n.nome }}</td>
+            <td>{{ n.pais }}</td>
+        </tr>
+    </table>
+
+    <h2>HTTP Request</h2>
+    <ul>
+        <li ng-repeat="p in pessoas">{{ p.nome }} tem {{ p.idade }} anos.</li>
+    </ul>
+
+    <h2>Restaurante X</h2>
+    <p ng-show="hora > 17">Estamos abertos agora às {{ hora }}h</p>
+
+    <h2>Eventos</h2>
+    <button ng-click="adicionar(1)">+1</button>
+    <button ng-click="adicionar(2)">+2</button>
+    <p>Contador: {{ contador }}</p>
+
+    <h2>Formulário</h2>
+    <form name="meuForm">
+        <input type="email" ng-model="meuEmail" name="email" required>
+        <input type="submit" value="Enviar">
+
+        <p ng-show="meuForm.email.$dirty && meuForm.email.$invalid">Este E-mail não é valido. Corrija</p>
+        <!-- <p>O E-mail é valido? {{ meuForm.email.$valid }}</p> -->
+    </form>
+
+    <h2>Lista de Compras</h2>
+    <input type="text" ng-model="addTexto">
+    <button ng-click="addItem()">+</button>
+    <span>{{ aviso }}</span>
+    <ul>
+        <li ng-repeat="p in lista">{{ p }}<button ng-click="removeItem($index)">x</button></li>
+    </ul>
 </div>
 
 
