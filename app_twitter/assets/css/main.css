@@ -1,0 +1,18 @@
+.brand-logo img {
+    height: 50px;
+}
+
+.container-banner {
+    height: 300px;
+}
+
+.container-banner img {
+    object-fit: cover;
+    height: 100%;
+}
+
+@media screen and (min-width: 728px) {
+    .brand-logo {
+        margin-left: 3rem;
+    }
+}

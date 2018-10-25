@@ -1,1 +1,3 @@
-console.log("JAVASCRIPT = TRUE")
+$(function() {
+    M.AutoInit()
+})
