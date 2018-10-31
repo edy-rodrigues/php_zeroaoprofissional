@@ -4,8 +4,8 @@ require_once "environment.php";
 $config = [];
 
 if(ENVIRONMENT == 'development') {
-    define("BASE_URL", "http://localhost/php_zeroaoprofissional/app_twitter/");
-    $config["dbname"] = "db_apptwitter";
+    define("BASE_URL", "http://localhost/php_zeroaoprofissional/app_facebook/");
+    $config["dbname"] = "db_appfacebook";
     $config["host"] = "localhost";
     $config["dbuser"] = "root";
     $config["dbpass"] = "";
