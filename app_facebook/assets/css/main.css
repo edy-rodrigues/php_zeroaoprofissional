@@ -1,3 +1,125 @@
+* {
+    font-family: Helvetica, sans-serif;
+}
+
 .navbar {
     background-color: #3B5998 !important;
+    height: 44px;
+}
+
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.nav-tabs .nav-link {
+    border-radius: 0;
+    height: 43px;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #243c6d;
+    border: 0;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border: 0;
+}
+
+.icon-feed {
+    background-image: url(../img/icons.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 -597px;
+    height: 20px;
+    width: 20px;
+}
+.nav-tabs .nav-link.active .icon-feed, .nav-tabs .nav-item.show .nav-link .icon-feed {
+    background-position: 0 -618px;
+}
+
+.icon-person {
+    background-image: url(../img/icons.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 -408px;
+    height: 20px;
+    width: 20px;
+}
+.nav-tabs .nav-link.active .icon-person, .nav-tabs .nav-item.show .nav-link .icon-person {
+    background-position: 0 -429px;
+}
+
+.icon-messenger {
+    background-image: url(../img/icons.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 -261px;
+    height: 20px;
+    width: 20px;
+}
+.nav-tabs .nav-link.active .icon-messenger, .nav-tabs .nav-item.show .nav-link .icon-messenger {
+    background-position: 0 -282px;
+}
+
+.icon-notification {
+    background-image: url(../img/icons.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 -345px;
+    height: 20px;
+    width: 20px;
+}
+.nav-tabs .nav-link.active .icon-notification, .nav-tabs .nav-item.show .nav-link .icon-notification {
+    background-position: 0 -366px;
+}
+
+.icon-search {
+    background-image: url(../img/icons.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 -471px;
+    height: 20px;
+    width: 20px;
+}
+.nav-tabs .nav-link.active .icon-search, .nav-tabs .nav-item.show .nav-link .icon-search {
+    background-position: 0 -492px;
+}
+
+.icon-profile {
+    background-image: url(../img/icons.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 -555px;
+    height: 20px;
+    width: 20px;
+}
+.nav-tabs .nav-link.active .icon-profile, .nav-tabs .nav-item.show .nav-link .icon-profile {
+    background-position: 0 -576px;
+}
+
+#profile ul h3 {
+    font-size: 12px;
+    color: #4e5665;
+    background-color: #f6f7f8;
+}
+#profile div.p-3 {
+    font-size: 14px;
+}
+#profile ul li a {
+    color: #141823;
+    text-decoration: none;
+}
+
+.icon-logout {
+    background-image: url(../img/icons-profile.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 -210px;
+    height: 34px;
+    width: 34px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
 }

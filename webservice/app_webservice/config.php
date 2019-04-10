@@ -4,8 +4,8 @@ require_once "environment.php";
 $config = [];
 
 if(ENVIRONMENT == 'development') {
-    define("BASE_URL", "http://phpzeroaoprofissional.pc:8080/app_webservice/");
-    $config["dbname"] = "db_projetotarefa";
+    define("BASE_URL", "http://localhost/app_webservice/");
+    $config["dbname"] = "db_siga";
     $config["host"] = "localhost";
     $config["dbuser"] = "root";
     $config["dbpass"] = "";

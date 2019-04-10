@@ -1,31 +1,22 @@
-<nav class="navbar navbar-expand-lg text-light">
-  <a class="navbar-brand text-light" href="#">Facebook</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <!-- <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul> -->
-  </div>
+<nav class="navbar navbar-expand-lg text-light justify-content-between p-0">
+  <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
+    <li class="nav-item flex-1">
+      <a class="nav-link active d-flex justify-content-center align-items-center" id="feed-tab" data-toggle="tab" href="#feed" role="tab" aria-controls="feed" aria-selected="true"><div class="icon-feed"></div></a>
+    </li>
+    <li class="nav-item flex-1">
+      <a class="nav-link d-flex justify-content-center align-items-center" id="profile-tab" data-toggle="tab" href="#person" role="tab" aria-controls="profile" aria-selected="false"><div class="icon-person"></div></a>
+    </li>
+    <li class="nav-item flex-1">
+      <a class="nav-link d-flex justify-content-center align-items-center" id="messenger-tab" data-toggle="tab" href="#messenger" role="tab" aria-controls="messenger" aria-selected="false"><div class="icon-messenger"></div></a>
+    </li>
+    <li class="nav-item flex-1">
+      <a class="nav-link d-flex justify-content-center align-items-center" id="notification-tab" data-toggle="tab" href="#notification" role="tab" aria-controls="notification" aria-selected="false"><div class="icon-notification"></div></a>
+    </li>
+    <li class="nav-item flex-1">
+      <a class="nav-link d-flex justify-content-center align-items-center" id="search-tab" data-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="false"><div class="icon-search"></div></a>
+    </li>
+    <li class="nav-item flex-1">
+      <a class="nav-link d-flex justify-content-center align-items-center" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><div class="icon-profile"></div></a>
+    </li>
+  </ul>
 </nav>
